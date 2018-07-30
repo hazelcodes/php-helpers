@@ -1,0 +1,12 @@
+{
+  "name": "hazelcodes/php-helpers",
+  "type": "library",
+  "description": "Framework Agnostic PHP helpers",
+  "homepage": "https://github.com/hazelcodes/php-helpers",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "HazelCodes\\": "src/"
+    }
+  }
+}
