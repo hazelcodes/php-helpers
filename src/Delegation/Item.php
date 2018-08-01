@@ -2,18 +2,16 @@
 
 namespace HazelCodes\Delegation;
 
-use HazelCodes\Reflection\ReflectionTrait;
+use HazelCodes\Common\Reflection;
 
-class DelegationItem {
-  use ReflectionTrait;
-  
+class Item {
   private $attribute;
   private $object;
   public $callable;
 
-  public function __construct($attribute, $object, $as = null) {
-    if (!$this->hasProperty($attribute, $object)) {
-      throw new DelegationException($object, $attribute);
+  public function __construct(string $attribute, $object, string $as = null) {
+    if (!Reflection::hasProperty($attribute, $object)) {
+      throw new Exception($object, $attribute);
     }
     
     $this->attribute = $attribute;
@@ -26,8 +24,8 @@ class DelegationItem {
     return $this->object->{$this->attribute};
   }
 
-  private function callable() {
-    $className = $this->getShortName($this->object);
+  private function callable() : string {
+    $className = Reflection::getShortName($this->object);
     return lcfirst($className) . ucfirst($this->attribute);
   }
 

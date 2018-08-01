@@ -2,7 +2,7 @@
 
 namespace HazelCodes\Delegation;
 
-class DelegationCollection extends \ArrayObject {
+class Collection extends \ArrayObject {
   private $parent;
 
 
@@ -11,22 +11,22 @@ class DelegationCollection extends \ArrayObject {
     parent::__construct(...$args);
   }
 
-  public function add($attribute, $object, $as = null) : DelegationCollection {
-    $item = new DelegationItem($attribute, $object, $as);
+  public function add(string $attribute, $object, string $as = null) : Collection {
+    $item = new Item($attribute, $object, $as);
     $this->__set($item->callable, $item);
     return $this;
   }
 
-  public function __get($attribute) {
+  public function __get(string $attribute) {
     if ($this->offsetExists($attribute)) {
       return $this->offsetGet($attribute)->call();
     } else {
-      throw new DelegationException($this->parent, $attribute);
+      throw new Exception($this->parent, $attribute);
     }
   }
 
-  public function __set($attribute, $value) {
-    $this->offsetSet($attribute, $value);
+  public function __set(string $attribute, $object) {
+    $this->offsetSet($attribute, $object);
     return $this->offsetGet($attribute);
   }
 }

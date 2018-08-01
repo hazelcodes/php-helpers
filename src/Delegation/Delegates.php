@@ -2,11 +2,11 @@
 
 namespace HazelCodes\Delegation;
 
-trait DelegationTrait {
+trait Delegates {
   private $delegations = null;
 
   private function getCollection() {
-    $this->delegations = $this->delegations ?? new DelegationCollection($this);
+    $this->delegations = $this->delegations ?? new Collection($this);
     return $this->delegations;
   }
 

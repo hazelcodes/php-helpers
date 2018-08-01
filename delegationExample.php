@@ -2,10 +2,10 @@
 
 require_once(__DIR__ . '/vendor/autoload.php');
 
-use HazelCodes\Delegation\DelegationTrait;
+use HazelCodes\Delegation\Delegates;
 
 class ParentObject {
-  use DelegationTrait;
+  use Delegates;
 }
 
 class ChildObject {

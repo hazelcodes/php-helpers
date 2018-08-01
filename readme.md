@@ -9,3 +9,7 @@ I think that's a saying, right?  The functionality here is not dependent on any 
 ## Composer 
 
 No idea if this is a functional composer package yet.
+
+## Examples 
+
+Examples will be found in the root of this repo until I get proper documentation put together
