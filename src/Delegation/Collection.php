@@ -5,7 +5,6 @@ namespace HazelCodes\Delegation;
 class Collection extends \ArrayObject {
   private $parent;
 
-
   public function __construct($parent, ...$args) {
     $this->parent = $parent;
     parent::__construct(...$args);
